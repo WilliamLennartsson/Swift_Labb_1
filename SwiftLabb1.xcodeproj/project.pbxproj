@@ -12,6 +12,10 @@
 		72A42B582047229A000D78A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72A42B562047229A000D78A3 /* Main.storyboard */; };
 		72A42B5A2047229A000D78A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A42B592047229A000D78A3 /* Assets.xcassets */; };
 		72A42B5D2047229A000D78A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72A42B5B2047229A000D78A3 /* LaunchScreen.storyboard */; };
+		72A42B6720472A1C000D78A3 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A42B6620472A1C000D78A3 /* CustomTableViewCell.swift */; };
+		72A42B6920472B05000D78A3 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A42B6820472B05000D78A3 /* WeatherViewController.swift */; };
+		72A42B6B20482782000D78A3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A42B6A20482782000D78A3 /* City.swift */; };
+		72A42B6D2048297F000D78A3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A42B6C2048297F000D78A3 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		72A42B592047229A000D78A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72A42B5C2047229A000D78A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72A42B5E2047229A000D78A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72A42B6620472A1C000D78A3 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		72A42B6820472B05000D78A3 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		72A42B6A20482782000D78A3 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		72A42B6C2048297F000D78A3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,10 @@
 				72A42B522047229A000D78A3 /* AppDelegate.swift */,
 				72A42B542047229A000D78A3 /* ViewController.swift */,
 				72A42B562047229A000D78A3 /* Main.storyboard */,
+				72A42B6A20482782000D78A3 /* City.swift */,
+				72A42B6820472B05000D78A3 /* WeatherViewController.swift */,
+				72A42B6C2048297F000D78A3 /* Model.swift */,
+				72A42B6620472A1C000D78A3 /* CustomTableViewCell.swift */,
 				72A42B592047229A000D78A3 /* Assets.xcassets */,
 				72A42B5B2047229A000D78A3 /* LaunchScreen.storyboard */,
 				72A42B5E2047229A000D78A3 /* Info.plist */,
@@ -137,6 +149,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				72A42B552047229A000D78A3 /* ViewController.swift in Sources */,
+				72A42B6B20482782000D78A3 /* City.swift in Sources */,
+				72A42B6920472B05000D78A3 /* WeatherViewController.swift in Sources */,
+				72A42B6D2048297F000D78A3 /* Model.swift in Sources */,
+				72A42B6720472A1C000D78A3 /* CustomTableViewCell.swift in Sources */,
 				72A42B532047229A000D78A3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
