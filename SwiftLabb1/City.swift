@@ -10,8 +10,11 @@ import UIKit
 
 class City: NSObject {
     var temperature : Int
-    var name : String = ""
-    var infoText : String = ""
+    var name : String
+    var infoText : String
+    var temp_min = Float()
+    var temp_max = Float()
+    
     
     init ( temperature : Int, name : String, infoText : String) {
         self.temperature = temperature

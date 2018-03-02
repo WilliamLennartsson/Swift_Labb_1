@@ -16,6 +16,7 @@
 		72A42B6920472B05000D78A3 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A42B6820472B05000D78A3 /* WeatherViewController.swift */; };
 		72A42B6B20482782000D78A3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A42B6A20482782000D78A3 /* City.swift */; };
 		72A42B6D2048297F000D78A3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A42B6C2048297F000D78A3 /* Model.swift */; };
+		72A42B6F20485CB0000D78A3 /* WeatherHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A42B6E20485CB0000D78A3 /* WeatherHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		72A42B6820472B05000D78A3 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		72A42B6A20482782000D78A3 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		72A42B6C2048297F000D78A3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		72A42B6E20485CB0000D78A3 /* WeatherHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				72A42B522047229A000D78A3 /* AppDelegate.swift */,
 				72A42B542047229A000D78A3 /* ViewController.swift */,
 				72A42B562047229A000D78A3 /* Main.storyboard */,
+				72A42B6E20485CB0000D78A3 /* WeatherHelper.swift */,
 				72A42B6A20482782000D78A3 /* City.swift */,
 				72A42B6820472B05000D78A3 /* WeatherViewController.swift */,
 				72A42B6C2048297F000D78A3 /* Model.swift */,
@@ -153,6 +156,7 @@
 				72A42B6920472B05000D78A3 /* WeatherViewController.swift in Sources */,
 				72A42B6D2048297F000D78A3 /* Model.swift in Sources */,
 				72A42B6720472A1C000D78A3 /* CustomTableViewCell.swift in Sources */,
+				72A42B6F20485CB0000D78A3 /* WeatherHelper.swift in Sources */,
 				72A42B532047229A000D78A3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

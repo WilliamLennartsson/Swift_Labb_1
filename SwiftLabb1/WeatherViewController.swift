@@ -30,13 +30,21 @@ class WeatherViewController: UIViewController , UITableViewDelegate, UITableView
         return cityList.count
         
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100;
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomTableViewCell
         
         let city = cityList[indexPath.row]
+        
+        
+        //cell.imgThumbNail.layer.cornerRadius = cell.imgThumbNail.frame.height / 2
+        cell.imgThumbNail.image = UIImage(named: "sunset")
         cell.name.text = city.name
         cell.temperature.text = "\(city.temperature) ◦C"
+        
         
         return cell
     }

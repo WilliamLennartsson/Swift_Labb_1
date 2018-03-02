@@ -11,12 +11,16 @@ import UIKit
 class Model: NSObject {
     let list : [(cityName: String, temprature:  Int)] = [("Rome", -1), ("Vaabäj", -13), ("Fakenbäj", -25), ("Nufjiri hazikan", 23), ("Göteborg", -100),("Mumindalen", 12), ("Hjällbo", 25)]
     
+    
+    func getCity (city: String) {
+        getWeather(city: city)
+    }
+    
     func spawnCity (i : Int) -> City{
         var j = i
         if i >= list.count{
             j -= list.count
         }
-        
         let city = City(temperature: list[j].temprature, name: list[j].cityName, infoText: "")
         return city
     }
@@ -27,6 +31,11 @@ class Model: NSObject {
             let city = spawnCity(i: index)
             cityList.append(city)
         }
+        return cityList
+    }
+    
+    func searchForCity(input: String) -> [City]{
+        let cityList = [City]()
         return cityList
     }
 }

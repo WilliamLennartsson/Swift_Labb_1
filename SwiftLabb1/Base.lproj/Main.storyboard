@@ -45,7 +45,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cxp-Rh-lEE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cxp-Rh-lEE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,26 +57,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SR7-fi-KCV">
-                                                    <rect key="frame" x="15" y="7" width="85" height="49.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="sunset" translatesAutoresizingMaskIntoConstraints="NO" id="SR7-fi-KCV">
+                                                    <rect key="frame" x="6" y="0.0" width="101" height="64"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hm1-gV-shZ" userLabel="name">
-                                                    <rect key="frame" x="115" y="6" width="176" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjL-tI-hVr" userLabel="temperatureLbl">
+                                                    <rect key="frame" x="318" y="7" width="52" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hm1-gV-shZ" userLabel="name">
+                                                    <rect key="frame" x="115" y="6" width="195" height="50"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="shadowColor" red="0.78801003886010368" green="0.71783825119187072" blue="0.7118915209113541" alpha="0.23564040492957747" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjL-tI-hVr" userLabel="temperatureLbl">
-                                                    <rect key="frame" x="299" y="2" width="67" height="58"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PjL-tI-hVr" firstAttribute="top" secondItem="GHO-kc-t2D" secondAttribute="top" constant="7" id="603-Wl-RAj"/>
+                                                <constraint firstAttribute="bottom" secondItem="SR7-fi-KCV" secondAttribute="bottom" constant="7" id="Dsy-pv-lJo"/>
+                                                <constraint firstItem="hm1-gV-shZ" firstAttribute="top" secondItem="GHO-kc-t2D" secondAttribute="top" constant="6" id="G8f-2Q-TvA"/>
+                                                <constraint firstItem="SR7-fi-KCV" firstAttribute="top" secondItem="GHO-kc-t2D" secondAttribute="top" constant="7" id="KGY-sq-EB1"/>
+                                                <constraint firstAttribute="trailing" secondItem="PjL-tI-hVr" secondAttribute="trailing" constant="5" id="TRd-l9-OOA"/>
+                                                <constraint firstItem="PjL-tI-hVr" firstAttribute="leading" secondItem="hm1-gV-shZ" secondAttribute="trailing" constant="49.5" id="WH0-7D-qbz"/>
+                                                <constraint firstAttribute="bottom" secondItem="hm1-gV-shZ" secondAttribute="bottom" constant="7.5" id="Zfj-a2-vMj"/>
+                                                <constraint firstItem="hm1-gV-shZ" firstAttribute="leading" secondItem="SR7-fi-KCV" secondAttribute="trailing" constant="15" id="qW3-le-sL4"/>
+                                                <constraint firstItem="SR7-fi-KCV" firstAttribute="leading" secondItem="GHO-kc-t2D" secondAttribute="leading" constant="15" id="sNg-28-MsL"/>
+                                                <constraint firstAttribute="bottom" secondItem="PjL-tI-hVr" secondAttribute="bottom" constant="7" id="sQq-H4-9bQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imgThumbNail" destination="SR7-fi-KCV" id="j7Y-he-jeB"/>
@@ -100,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2z-GA-zqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="134"/>
+            <point key="canvasLocation" x="1269.5999999999999" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gZS-AV-ISS">
@@ -121,4 +130,7 @@
             <point key="canvasLocation" x="-287" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sunset" width="391" height="211"/>
+    </resources>
 </document>
