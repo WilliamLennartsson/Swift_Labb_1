@@ -9,17 +9,19 @@
 import UIKit
 
 class City: NSObject {
-    var temperature : Int
-    var name : String
-    var infoText : String
+    var temperature = Float()
+    var name = String()
+    var infoText = String()
     var temp_min = Float()
     var temp_max = Float()
     
+    override init() {
+        
+    }
     
-    init ( temperature : Int, name : String, infoText : String) {
+    init ( temperature : Float, name : String, infoText : String) {
         self.temperature = temperature
         self.name = name
         self.infoText = infoText
     }
-    
 }
