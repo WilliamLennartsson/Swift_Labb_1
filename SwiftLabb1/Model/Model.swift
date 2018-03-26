@@ -8,33 +8,14 @@
 
 import UIKit
 
-class Model: NSObject {
+class Model {
+    let API_KEY = "9b58a649a30afe46cd3fe20f91fdb602"
+    let searchBaseURL = "http://api.openweathermap.org/data/2.5/weather"
+    let aboluteZero : Float = 273.15
+    var searchWord : String = "Varberg"
     var cityList : [City] = []
-    override init() {
-        let city = City(temperature: 11, name: "Varberg", infoText: "Tjo boråsare")
-        let city2 = City(temperature: 15, name: "Halmstad", infoText: "Haaaaaalmstad")
+    
+    func addCity(city: City){
         cityList.append(city)
-        cityList.append(city2)
-        
     }
-    
-    func addCity (city: City) {
-        cityList.append(city)
-        print ("City Added \(city)")
-    }
-    
-    func searchCity (city: String) {
-         getWeather(cityName: city, model: self)
-    }
-
-    
-    func loadCities (){
-        let list = ["Gothenburg", "Varberg", "Boras",]
-        for i in list {
-            //let city : City =
-            getWeather(cityName: i, model: self)
-            //cityList.append(city)
-        }
-    }
-
 }

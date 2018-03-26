@@ -14,7 +14,7 @@ class City: NSObject {
     var infoText = String()
     var temp_min = Float()
     var temp_max = Float()
-    
+    var favorite = false
     override init() {
         
     }
@@ -23,5 +23,6 @@ class City: NSObject {
         self.temperature = temperature
         self.name = name
         self.infoText = infoText
+        
     }
 }
