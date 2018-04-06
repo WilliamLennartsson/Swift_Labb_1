@@ -10,14 +10,22 @@ import UIKit
 
 class WeatherViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var searchText: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var cityList = [City]()
     var weatherHelper = WeatherHelper()
     let model = Model()
     
+    @IBOutlet weak var compareBtn: UIButton!
+    struct CityDecoded : Decodable{
+        let humidity : Float
+        let temp : Float
+        let name : String
+        //var infoText = String()
+        let temp_min = Float()
+        let temp_max = Float()
+    }
+    
     @IBAction func searchBtnPressed(_ sender: Any) {
-        getWeather(cityName: "Halmstad")
         refresh()
     }
     
@@ -26,26 +34,36 @@ class WeatherViewController: UIViewController , UITableViewDelegate, UITableView
         tableView.dataSource = self
         super.viewDidLoad()
         refresh()
+        
     }
     
     func refresh(){
-        cityList = model.cityList
+        cityList = weatherHelper.cityList
         tableView.reloadData()
         print(cityList)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-    }
     @IBOutlet weak var btnPressed: UIButton!
 
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cityList.count
         
+        if let homeScreenCity = weatherHelper.currentHomeScreenCity {
+            if weatherHelper.cityList.contains(homeScreenCity){
+                return weatherHelper.cityList.count
+            } else {
+                weatherHelper.addCityToFavs(city: homeScreenCity)
+                
+            }
+        }
+        
+        return weatherHelper.cityList.count
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100;
     }
@@ -53,90 +71,33 @@ class WeatherViewController: UIViewController , UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomTableViewCell
         
+        let cityCount = weatherHelper.cityList.count
         
-        if cityList.count  > indexPath.row{
-            let city = cityList[indexPath.row]
-            print("\(city.name)")
-            
-            //cell.imgThumbNail.layer.cornerRadius = cell.imgThumbNail.frame.height / 2
-            cell.imgThumbNail.image = UIImage(named: "sunset")
-            cell.name.text = city.name
-            cell.temperature.text = "\(city.temperature) ◦C"
-        }
+//        if (indexPath.row < cityCount){
+//            weatherHelper.updateCellInfo(city: cityList[indexPath.row], cell: cell)
+//        } else {
+            // BYT UT CITYNAMES ARRAY MOT EN STRING
+            weatherHelper.getWeatherWithCell(cityName: weatherHelper.cityList[indexPath.row].name, cell)
+//        }
         
         return cell
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSeg" {
             let detailController = segue.destination as! DetailViewController
-            if let cell = sender as? UITableViewCell{
+            let cityList = weatherHelper.cityList
+            if let cell = sender as? CustomTableViewCell{
                 let indexOfCell : Int = tableView.indexPath(for: cell)!.row
-                let cellCity = self.cityList[indexOfCell]
+                let cellCity : City = cityList[indexOfCell]
                 detailController.city = cellCity
                 detailController.dWeatherHelper = weatherHelper
             }
-            
         }
-    }
-    func updateUI(){
-        self.cityList = model.cityList
-    }
-}
-
-extension WeatherViewController {
-    
-    func getWeather(cityName: String){
-        
-        
-        let session = URLSession.shared
-        let weatherRequestURL = NSURL(string: "\(model.searchBaseURL)?APPID=\(model.API_KEY)&q=\(cityName)")!
-        
-        let dataTask = session.dataTask(with: weatherRequestURL as URL) {
-            
-            (data: Data?, response: URLResponse?, error: Error?) in
-            if let error = error {
-                //Error
-                print("Error:\n\(error)")
-            } else {
-                do {
-                    //Det gick bra men inte så fort
-                    let weather = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
-                    
-                    let city = City()
-                    city.name = weather["name"]! as! String
-                    city.temperature = (weather["main"]!["temp"]!! as! Float)  - Float(self.model.aboluteZero)
-                    city.temp_max = (weather["main"]!["temp_max"] as! Float)
-                    city.temp_min = (weather["main"]!["temp_min"] as! Float)
-                    self.model.addCity(city: city)
-                    self.updateUI()
-                    print("City -> \n \(city.name) , \(city.temperature)")
-                    print("City\(weather["name"]!)")
-                    print("Temp -> \n \(weather["main"]!["temp"]!!)")
-                    print("Humidity -> \n \(weather["main"]!["humidity"]!!)")
-                    
-//                    DispatchQueue.main.async {
-//                        cell.degreeLabel.text = String(weatherResponse.main.temp - 273.15)
-//                    }
-                    
-                } catch let jsonError as NSError {
-                    print("Nu gick det fel här med Json . \(jsonError.description)")
-                }
-                
-                let dataString = String(data: data!, encoding: String.Encoding.utf8)
-                print("Data:\n\(data!)")
-                print("Human-readable data:\n\(dataString!)")
-                
-            }
-            
-        }
-        dataTask.resume()
-        
-    }
-    func loadCities (){
-        let list = ["Gothenburg", "Varberg", "Bangkok", "London"]
-        for i in list {
-            getWeather(cityName: i)
+        if segue.identifier == "compareSeg"{
+            let controller = segue.destination as! CompareViewController
+            controller.weatherHelper = self.weatherHelper
         }
     }
 }

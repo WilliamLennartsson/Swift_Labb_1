@@ -6,6 +6,7 @@ target 'SwiftLabb1' do
   use_frameworks!
 
   # Pods for SwiftLabb1
-
+pod ’GraphKit’
+pod ’SwiftyJSON’
 
 end

@@ -14,7 +14,8 @@ class City: NSObject {
     var infoText = String()
     var temp_min = Float()
     var temp_max = Float()
-    var favorite = false
+    var humidity = Float()
+    var windSpeed = Float()
     override init() {
         
     }
