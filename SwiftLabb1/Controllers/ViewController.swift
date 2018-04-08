@@ -23,7 +23,7 @@ class ViewController: UIViewController , SearchCityDelegate{
     
     var currentWeahterName = ""
     var searchNameList : [String] = []
-    
+    var animator : UIDynamicAnimator?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,19 +33,25 @@ class ViewController: UIViewController , SearchCityDelegate{
         weatherHelper.loadSavedCities()
         //addBtn.frame(x: 10, y: 50, width: 100, height: 100)
         self.searchBtn.isEnabled = false
+        self.searchBtn.isHidden = true
         let queue = DispatchQueue(label: "Load JSON")
         queue.async {
             self.readJson()
         }
         
+        addViewElements()
+    }
+    
+    let loadingLabel = UILabel()
+    func addViewElements(){
         let animationLbl = UILabel()
         animationLbl.frame = CGRect(x: 250, y: -50, width: 100, height: 100)
-        animationLbl.backgroundColor = .gray
         animationLbl.text = "Hej alla"
         animationLbl.textAlignment = .center
         animationLbl.textColor = .black
         
         mainView.addSubview(animationLbl)
+        addImageView()
         
         UIView.beginAnimations("MoveAround", context: nil)
         UIView.setAnimationDuration(2.5)
@@ -54,6 +60,20 @@ class ViewController: UIViewController , SearchCityDelegate{
         
         animationLbl.center = CGPoint(x: 250, y: 100)
         UIView.commitAnimations()
+        
+        
+        loadingLabel.frame = CGRect(x: mainView.frame.size.width/2 - 100, y: mainView.frame.size.height/2, width: 200, height: 100)
+        loadingLabel.text = "Loading..."
+        loadingLabel.textColor = .black
+        mainView.addSubview(loadingLabel)
+    }
+    
+    let sunImageView = UIImageView()
+    func addImageView(){
+        sunImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        sunImageView.image = UIImage(named: "sunImage")
+        mainView.addSubview(sunImageView)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,16 +111,34 @@ class ViewController: UIViewController , SearchCityDelegate{
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 let jsonObj = try JSON(data: data)
-                
                 createCityArray(jsonObj: jsonObj)
-                
-                searchBtn.isEnabled = true
+                setSearchBtnTrue()
                 
             } catch let error {
                 print("parse error: \(error.localizedDescription)")
             }
         } else {
             print("Invalid filename/path.")
+        }
+        
+    }
+    
+    var finishedLoading : Bool = false {
+        didSet{
+            if finishedLoading {
+                self.animator = UIDynamicAnimator(referenceView:self.view)
+                let gravity = UIGravityBehavior(items: [sunImageView, loadingLabel])
+                animator!.addBehavior(gravity)
+                
+            }
+        }
+    }
+    
+    func setSearchBtnTrue(){
+        DispatchQueue.main.async {
+            self.searchBtn.isEnabled = true
+            self.searchBtn.isHidden = false
+            self.finishedLoading = true
         }
         
     }

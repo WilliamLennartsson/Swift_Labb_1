@@ -8,16 +8,16 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DetailViewController: UIViewController {
     
     
     
     @IBOutlet weak var weatherImgView: UIImageView!
     
-    @IBOutlet weak var compareTableView: UITableView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityTempLabel: UILabel!
     
+    @IBOutlet weak var cityHumidityLabel: UILabel!
     var dWeatherHelper = WeatherHelper()
     
     var city = City()
@@ -28,30 +28,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         print(city.name)
         whatWeather()
-        compareTableView.reloadData()
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        compareTableView.setNeedsDisplay()
-        compareTableView.reloadData()
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return dWeatherHelper.cityList.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "compareCell") as! CompareCell
-        
-        cell.cityName.text = dWeatherHelper.cityList[indexPath.row].name
-        
-        return cell
-    }
 
     
     func whatWeather(){
         cityNameLabel.text = city.name
-        cityTempLabel.text = String(city.temperature)
+        cityTempLabel.text = "\(String(city.temperature)) ・C"
+        cityHumidityLabel.text = "\(String(city.humidity)) %"
         
         let temp = city.temperature
         switch temp {

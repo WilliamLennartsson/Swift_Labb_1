@@ -58,6 +58,7 @@ class CompareViewController: UIViewController, GKBarGraphDataSource, UIPickerVie
         citySelected(component: component, cityIndex: row)
         if (!city1Elements.isEmpty && !city2Elements.isEmpty){
             graphView1.draw()
+            print(city1Elements)
         }
     }
     

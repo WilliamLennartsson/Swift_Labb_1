@@ -22,7 +22,6 @@ class WeatherHelper : NSObject, UITableViewDelegate {
         //if let safeString = cell.cityLabel.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
 
         let session = URLSession.shared
-        let safeCityName = cityName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         let weatherRequestURL = NSURL(string: "\(searchBaseURL)?APPID=\(API_KEY)&q=\(cityName)")!
         let dataTask = session.dataTask(with: weatherRequestURL as URL) {
@@ -181,8 +180,8 @@ class WeatherHelper : NSObject, UITableViewDelegate {
                     } catch let jsonError as NSError {
                         print("Nu gick det fel här med Json . \(jsonError.description)")
                     }
-                    let dataString = String(data: data!, encoding: String.Encoding.utf8)
-                    print("Data:\n\(dataString)")
+//                    let dataString = String(data: data!, encoding: String.Encoding.utf8)
+//                    print("Data:\n\(dataString)")
                     
                 }
             }
