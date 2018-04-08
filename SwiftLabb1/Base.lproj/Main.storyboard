@@ -161,7 +161,7 @@
                             </pickerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FjI-jz-Kxh" customClass="GKBarGraph">
                                 <rect key="frame" x="16" y="245" width="343" height="176"/>
-                                <color key="backgroundColor" red="0.11122144013643265" green="0.4674074649810791" blue="0.14095702767372131" alpha="0.67754708904109584" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.13769792181636975" green="0.57142872132625677" blue="0.17772894541872308" alpha="0.055008561643835517" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
