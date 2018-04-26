@@ -39,7 +39,8 @@ class WeatherHelper : NSObject, UITableViewDelegate {
                             let city = self.convertToCity(weather: weather!)
                             self.currentHomeScreenCity = city
                             nameLabel.text = city.name
-                            tempLabel.text = "\(String(city.temperature))・C"
+                            
+                            tempLabel.text = "\(String(format: "%.1f", city.temperature))・C"
                             let defaults = UserDefaults.standard
                             defaults.string(forKey: "homeScreen")
                         }
@@ -54,8 +55,6 @@ class WeatherHelper : NSObject, UITableViewDelegate {
             }
         }
         dataTask.resume()
-        
-        
     }
     
     func getWeatherWithCell(cityName: String, _ cell: CustomTableViewCell){
@@ -95,7 +94,8 @@ class WeatherHelper : NSObject, UITableViewDelegate {
     func updateCellInfo(city : City, cell : CustomTableViewCell){
         if city.name != "" {
             cell.name.text = city.name
-            cell.temperature.text = "\(String(city.temperature)) C"
+            cell.temperature.text = "\(String(format: "%.1f", city.temperature)) C"
+            //cell.temperature.text = "\(String(city.temperature)) C"
             cell.imgThumbNail.layer.cornerRadius = cell.imgThumbNail.frame.height / 2
             cell.imgThumbNail.image = UIImage(named: "sunset")
         } else {
@@ -130,8 +130,8 @@ class WeatherHelper : NSObject, UITableViewDelegate {
                 city.temp_min = weatherMinTemp.floatValue
             } else { print("weatherMinTemp error") }
             //print(weather["wind"])
-            if let wind : Float = weather["wind"]?["speed"] as? Float {
-                city.windSpeed = wind
+            if let wind : NSNumber = weather["wind"]?["speed"] as? NSNumber {
+                city.windSpeed = wind.floatValue
             } else {print("Windspeed error")}
             
         } else {
@@ -182,10 +182,7 @@ class WeatherHelper : NSObject, UITableViewDelegate {
                         
                     } catch let jsonError as NSError {
                         print("Nu gick det fel här med Json . \(jsonError.description)")
-                    }
-//                    let dataString = String(data: data!, encoding: String.Encoding.utf8)
-//                    print("Data:\n\(dataString)")
-                    
+                    }   
                 }
             }
         }

@@ -70,14 +70,7 @@ class WeatherViewController: UIViewController , UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomTableViewCell
-        
-        
-//        if (indexPath.row < cityCount){
-//            weatherHelper.updateCellInfo(city: cityList[indexPath.row], cell: cell)
-//        } else {
-            // BYT UT CITYNAMES ARRAY MOT EN STRING
             weatherHelper.getWeatherWithCell(cityName: weatherHelper.cityList[indexPath.row].name, cell)
-//        }
         
         return cell
     }
