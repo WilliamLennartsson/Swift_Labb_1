@@ -39,7 +39,7 @@ class WeatherHelper : NSObject, UITableViewDelegate {
                             let city = self.convertToCity(weather: weather!)
                             self.currentHomeScreenCity = city
                             nameLabel.text = city.name
-                            tempLabel.text = String(city.temperature)
+                            tempLabel.text = "\(String(city.temperature))・C"
                             let defaults = UserDefaults.standard
                             defaults.string(forKey: "homeScreen")
                         }
@@ -95,7 +95,7 @@ class WeatherHelper : NSObject, UITableViewDelegate {
     func updateCellInfo(city : City, cell : CustomTableViewCell){
         if city.name != "" {
             cell.name.text = city.name
-            cell.temperature.text = String(city.temperature)
+            cell.temperature.text = "\(String(city.temperature)) C"
             cell.imgThumbNail.layer.cornerRadius = cell.imgThumbNail.frame.height / 2
             cell.imgThumbNail.image = UIImage(named: "sunset")
         } else {
@@ -111,25 +111,28 @@ class WeatherHelper : NSObject, UITableViewDelegate {
         let city = City()
         if let weatherName : String = weather["name"] as? String {
             city.name = weatherName
-            if let weatherTemp : Float = weather["main"]?["temp"] as? Float{
-                city.temperature = weatherTemp - self.aboluteZero
-            } else { print("weatherTemp error") }
+            let main = weather["main"] as? NSDictionary
+            //print("Main dictionary \(main)")
+            if let weatherTemp: NSNumber = main!["temp"] as? NSNumber {
+                city.temperature = weatherTemp.floatValue - aboluteZero
+            } else {
+                print("weatherTemp error")
+            }
+            if let humidity: NSNumber = main!["humidity"] as? NSNumber {
+                city.humidity = humidity.floatValue
+            } else {print("Humidity error")}
             
-            if let weatherMaxTemp : Float = (weather["main"]?["temp_max"] as? Float){
-                city.temp_max = weatherMaxTemp
+            if let weatherMaxTemp : NSNumber = (main!["temp_max"] as? NSNumber){
+                city.temp_max = weatherMaxTemp.floatValue
             } else { print("weatherMaxTemp error") }
             
-            if let weatherMinTemp : Float = (weather["main"]?["temp_min"] as? Float){
-                city.temp_min = weatherMinTemp
+            if let weatherMinTemp : NSNumber = (main!["temp_max"] as? NSNumber){
+                city.temp_min = weatherMinTemp.floatValue
             } else { print("weatherMinTemp error") }
-            
-            if let humidity : Float = weather["main"]?["humidity"] as? Float {
-                city.humidity = humidity
-            } else {print("Humidity error")}
-            
+            //print(weather["wind"])
             if let wind : Float = weather["wind"]?["speed"] as? Float {
                 city.windSpeed = wind
-            } else {print("Humidity error")}
+            } else {print("Windspeed error")}
             
         } else {
             print("weatherName error")

@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityTempLabel: UILabel!
     
+    @IBOutlet weak var cityWindLabel: UILabel!
     @IBOutlet weak var cityHumidityLabel: UILabel!
     var dWeatherHelper = WeatherHelper()
     
@@ -30,12 +31,11 @@ class DetailViewController: UIViewController {
         whatWeather()
     }
     
-
-    
     func whatWeather(){
         cityNameLabel.text = city.name
         cityTempLabel.text = "\(String(city.temperature)) ・C"
         cityHumidityLabel.text = "\(String(city.humidity)) %"
+        cityWindLabel.text = "\(String(city.windSpeed)) m/s"
         
         let temp = city.temperature
         switch temp {

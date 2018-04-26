@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zAD-lG-rXa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zAD-lG-rXa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -297,39 +298,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmc-dj-lKc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmc-dj-lKc">
                                 <rect key="frame" x="16" y="81" width="343" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="vEm-h4-SfF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HE-xo-oQP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HE-xo-oQP">
                                 <rect key="frame" x="16" y="156" width="131" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="6Kx-nn-hgz"/>
+                                    <constraint firstAttribute="width" constant="131" id="xah-cS-VfK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRc-6B-V9E">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KRc-6B-V9E">
                                 <rect key="frame" x="155" y="156" width="204" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlB-LD-iRs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlB-LD-iRs">
                                 <rect key="frame" x="16" y="241" width="131" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WindSpeed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRU-b0-hH3">
+                                <rect key="frame" x="16" y="326" width="131" height="80"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KRc-6B-V9E" firstAttribute="leading" secondItem="5HE-xo-oQP" secondAttribute="trailing" constant="8" symbolic="YES" id="3jO-WA-26Q"/>
+                            <constraint firstItem="cmc-dj-lKc" firstAttribute="trailing" secondItem="gch-Jg-R8d" secondAttribute="trailingMargin" id="8va-Hb-tuG"/>
+                            <constraint firstItem="WRU-b0-hH3" firstAttribute="top" secondItem="PlB-LD-iRs" secondAttribute="bottom" constant="5" id="DcB-ID-vwb"/>
+                            <constraint firstItem="5HE-xo-oQP" firstAttribute="top" secondItem="cmc-dj-lKc" secondAttribute="bottom" constant="8" symbolic="YES" id="ETv-Kq-7DP"/>
+                            <constraint firstItem="cmc-dj-lKc" firstAttribute="leading" secondItem="5HE-xo-oQP" secondAttribute="leading" id="G4b-ai-glm"/>
+                            <constraint firstItem="prB-Vh-DQb" firstAttribute="bottom" secondItem="WRU-b0-hH3" secondAttribute="bottom" constant="261" id="L6a-5t-ga0"/>
+                            <constraint firstItem="KRc-6B-V9E" firstAttribute="leading" secondItem="WRU-b0-hH3" secondAttribute="trailing" constant="8" symbolic="YES" id="Lji-EE-Q2C"/>
+                            <constraint firstItem="KRc-6B-V9E" firstAttribute="leading" secondItem="PlB-LD-iRs" secondAttribute="trailing" constant="8" symbolic="YES" id="Okt-jV-hCN"/>
+                            <constraint firstItem="PlB-LD-iRs" firstAttribute="leading" secondItem="WRU-b0-hH3" secondAttribute="leading" id="Sd9-MD-kA9"/>
+                            <constraint firstItem="cmc-dj-lKc" firstAttribute="trailing" secondItem="KRc-6B-V9E" secondAttribute="trailing" id="XUG-QK-sPe"/>
+                            <constraint firstItem="PlB-LD-iRs" firstAttribute="top" secondItem="5HE-xo-oQP" secondAttribute="bottom" constant="5" id="hr7-Im-Gpm"/>
+                            <constraint firstItem="5HE-xo-oQP" firstAttribute="top" secondItem="KRc-6B-V9E" secondAttribute="top" id="hxg-yM-BbY"/>
+                            <constraint firstItem="cmc-dj-lKc" firstAttribute="leading" secondItem="gch-Jg-R8d" secondAttribute="leadingMargin" id="j9i-g9-0Nh"/>
+                            <constraint firstItem="5HE-xo-oQP" firstAttribute="leading" secondItem="PlB-LD-iRs" secondAttribute="leading" id="kLL-Tm-cso"/>
+                            <constraint firstItem="cmc-dj-lKc" firstAttribute="top" secondItem="prB-Vh-DQb" secondAttribute="top" constant="17" id="ofe-Ni-H6T"/>
+                            <constraint firstItem="PlB-LD-iRs" firstAttribute="centerY" secondItem="KRc-6B-V9E" secondAttribute="centerY" id="uTv-V7-zbG"/>
+                            <constraint firstItem="WRU-b0-hH3" firstAttribute="bottom" secondItem="KRc-6B-V9E" secondAttribute="bottom" id="wb1-7m-DME"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="prB-Vh-DQb"/>
                     </view>
                     <connections>
                         <outlet property="cityHumidityLabel" destination="PlB-LD-iRs" id="Nnh-mT-Fli"/>
                         <outlet property="cityNameLabel" destination="cmc-dj-lKc" id="exp-hU-XuO"/>
                         <outlet property="cityTempLabel" destination="5HE-xo-oQP" id="ICe-BG-j5c"/>
+                        <outlet property="cityWindLabel" destination="WRU-b0-hH3" id="AAZ-he-Vfc"/>
                         <outlet property="weatherImgView" destination="KRc-6B-V9E" id="H1t-Mc-xbg"/>
                     </connections>
                 </viewController>
